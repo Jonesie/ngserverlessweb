@@ -1,0 +1,4 @@
+  <ul class="nav" *ngIf='index && index.length'>
+    <li class="nav-header">Posts</li>
+    <li *ngFor='let item of index'><a [routerLink]="['/', item.page]">{{item.title}}</a></li>
+  </ul>
