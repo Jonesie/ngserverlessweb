@@ -52,16 +52,16 @@
 <p>I already had an AWS account for using free-tier resources while training myself. I want to resist creating anything in the
   AWS console and use code and script as much as possible. However, I do need to use the console to create an IAM account.
 </p>
-<img src="images/createiamuser.png" width=700 style="padding-left:50" />
+<img src="assets/content/images/createiamuser.png" width=700 style="padding-left:50" />
 <p>We only want this user to have progrmmatic access - no need for the console.</p>
 <p>Next, set the permissions:</p>
-<img src="images/permissions.png" width=700 style="padding-left:50" />
+<img src="assets/content/images/permissions.png" width=700 style="padding-left:50" />
 <p>I am only using S3 and Route53 for now. I'll add more permissions later if required.</p>
 <p>Next, save the IAM credentials somewhere safe and setup these in a local configuration. There are several ways to do this
   - I prefer to use a named profile rather than environment variables.I can use this profile with the AWS CLI and Terraform:</p>
-<img src="images/awsconfigure.png" width=500 style="padding-left:50" />
+<img src="assets/content/images/awsconfigure.png" width=500 style="padding-left:50" />
 <p>And now I can test this works:</p>
-<img src="images/s3ls.png" width=500 style="padding-left:50" />
+<img src="assets/content/images/s3ls.png" width=500 style="padding-left:50" />
 
 <h2>Creating the S3 Static Site</h2>
 <p>I will use <a href="https://www.terraform.io/downloads.html" target="_blank">Terraform</a> to create the S3 buckets for the
