@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AboutComponent } from '../about.component';
 import { BlogComponent } from './blog.component';
 import { BlogIndexComponent } from './blogindex.component';
+import { KiwianaComponent } from './kiwiana.component';
 
 import { BlogService } from './blog.service';
 import { BlogPostGaurdService } from './blog.routegaurd.service';
@@ -13,6 +14,7 @@ import { BlogPostGaurdService } from './blog.routegaurd.service';
   declarations: [
     BlogComponent,
     BlogIndexComponent,
+    KiwianaComponent,
     AboutComponent
   ],
   imports: [

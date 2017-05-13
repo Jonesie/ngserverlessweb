@@ -1,7 +1,12 @@
 <div class="row" *ngIf="currentPost">
-  <div class="col-sm-4 col-md-4" >
-    <div class="sidebar-nav-fixed affix well">
-      <comp-index></comp-index>
+  <div class="col-sm-4 col-md-4">
+    <div class="sidebar-nav-fixed affix" style="margin-top:30px">
+      <div class="well">
+        <comp-index [activePost]="currentPost" ></comp-index>
+      </div>
+      <div class="well text-center">
+        <comp-kiwiana></comp-kiwiana>
+      </div>
     </div>
   </div>
   <div class="col-sm-8 col-sm-offset-3 col-md-8 col-md-offset-2 main">
