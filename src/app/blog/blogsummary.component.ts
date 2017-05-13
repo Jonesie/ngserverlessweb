@@ -5,22 +5,17 @@ import { BlogService } from './blog.service';
 import { IBlogIndex } from './blogindex';
 import { IBlogPost } from './blogpost';
 
+
 @Component({
-  selector: 'comp-index',
-  templateUrl: 'blogindex.component.html',
-  styles: [
-    "li.active { font-weight:bold}"
-  ]
-
+  selector : 'comp-blogsummary',
+  templateUrl : './blogsummary.component.html'
 })
-export class BlogIndexComponent implements OnInit {
+export class BlogSummaryComponent {
 
-  @Input() activePost: IBlogPost;
-  index: IBlogIndex[];
-
-  firstPost: number;
-
+  @Input()maxPosts : number = 5;
   errorMessage: string;
+
+  index: IBlogIndex[];
   private sub: Subscription;
 
   constructor(private _service: BlogService) {
@@ -31,8 +26,7 @@ export class BlogIndexComponent implements OnInit {
     this.sub = this._service.getIndex()
       .subscribe(
       index => {
-        this.index = index.sort((a, b) => { return b.page - a.page; });
-        this.firstPost = this.index[0].page;
+        this.index = index.sort((a, b) => { return b.page - a.page; }).slice(0, this.maxPosts-1);
       },
       error => this.errorMessage = <any>error
       );
@@ -41,9 +35,5 @@ export class BlogIndexComponent implements OnInit {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
-  }
-
-  getActiveClass(item: IBlogIndex): string {
-    return (item.page == this.activePost.post) ? 'active' : '';
   }
 }

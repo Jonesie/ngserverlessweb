@@ -1,11 +1,15 @@
 [{
     "page": 0,
     "title": "Linux & AWS Explorations",
-    "abstract": ""
+    "abstract": "How and why I created this site.",
+    "author":"Peter G Jones",
+    "created":"24 April 2017"
   },
   {
     "page": 1,
-    "title": "Angular2",
-    "abstract": ""
+    "title": "Angular2 Startup",
+    "abstract": "Updating this site to a decent front end experience using Angular2.",
+    "author":"Peter G Jones",
+    "created":"May 2017"
   }
 ]

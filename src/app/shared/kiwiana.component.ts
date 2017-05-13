@@ -21,7 +21,7 @@ export class KiwianaComponent implements OnInit {
   ];
 
   ngOnInit() {
-    var index = Math.floor((Math.random() * this.images.length) + 1)
+    var index = Math.floor((Math.random() * this.images.length));
     this.currentImage = this.images[index];
   }
 
