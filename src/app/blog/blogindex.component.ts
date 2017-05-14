@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
 import { BlogService } from './blog.service';
