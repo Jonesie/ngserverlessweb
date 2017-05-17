@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -11,14 +11,13 @@ import { IBlogPost } from './blogpost';
   selector: 'comp-blogmain',
   templateUrl: './blogmain.component.html'
 })
-export class BlogMainComponent {
+export class BlogMainComponent implements OnInit, OnDestroy {
   currentPost: IBlogPost;
   errorMessage: string;
   private postSub: Subscription;
 
   constructor(
     private _route: ActivatedRoute,
-    private _router: Router,
     private _blogService: BlogService) {
   }
 

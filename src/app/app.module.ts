@@ -14,6 +14,7 @@ import { BlogSummaryComponent } from './blog/blogsummary.component';
 
 import { HomeComponent } from './home.component';
 import { ImageGalleryComponent } from './gallery/imagegallery.component';
+import { VideoComponent } from './video/video.component';
 
 
 import { BlogModule } from './blog/blog.module';
@@ -55,7 +56,8 @@ export const galleryConfig = {
     AboutComponent,
     BlogSummaryComponent,
     HomeComponent,
-    ImageGalleryComponent
+    ImageGalleryComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +65,8 @@ export const galleryConfig = {
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'gallery', component: ImageGalleryComponent },
+      { path: 'video/:id', component: VideoComponent },
+      { path: 'video', component: VideoComponent },
       { path: 'about', component: AboutComponent },
       { path: '**', redirectTo: '/', pathMatch: 'full' }
     ], { useHash: false }),

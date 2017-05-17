@@ -1,0 +1,21 @@
+<div class="row">
+  <table style="margin-left:20px;margin-top:20px;">
+    <tr>
+      <td style="vertical-align:top">
+        <div class="well">
+          <ul class="nav">
+            <li class="nav-header">Videos</li>
+            <li *ngFor='let video of videos.Values()' [class]="getActiveClass(video.id)"><a [routerLink]="['/video', video.id]">{{video.menu}}</a></li>
+          </ul>
+        </div>
+      </td>
+      <td style="vertical-align:top">
+        <div class='container' *ngIf='selectedVideo'>
+          <h1>{{selectedVideo.title}}</h1>
+          <div>{{selectedVideo.description}}</div>
+          <iframe width="860" height="600" [src]='getCurrentUrl()' frameborder="2" allowfullscreen></iframe>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -17,7 +17,8 @@ export class KiwianaComponent implements OnInit {
     { "title": "Missing Pavalova", "fileName": "kiwi-icon.png" },
     { "title": "Black Gold", "fileName": "vegemite.jpg" },
     { "title": "Heros", "fileName": "FrodoBagginsSamG.jpg" },
-    { "title": "Mountains", "fileName": "Mount-Cook.jpg" }
+    { "title": "Mountains", "fileName": "Mount-Cook.jpg" },
+    { "title": "With Pavalova", "fileName": "kiwi-pavlova.jpg" }
   ];
 
   ngOnInit() {

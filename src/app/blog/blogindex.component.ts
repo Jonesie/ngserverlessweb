@@ -13,7 +13,7 @@ import { IBlogPost } from './blogpost';
   ]
 
 })
-export class BlogIndexComponent implements OnInit {
+export class BlogIndexComponent implements OnInit, OnDestroy {
 
   @Input() activePost: IBlogPost;
   index: IBlogIndex[];
