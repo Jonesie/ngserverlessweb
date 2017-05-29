@@ -1,7 +1,7 @@
 <table class="table">
   <tr *ngFor='let item of index'>
     <td>
-      <h4><a [routerLink]="['/blog', item.page]">{{item.title}}</a></h4>
+      <h4><a [routerLink]="['/blog', item.post]">{{item.title}}</a></h4>
       <div>{{item.abstract}}</div>
       <div>{{item.created}}</div>
     </td>

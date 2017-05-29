@@ -5,7 +5,6 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 
-import { IBlogIndex } from './blogindex';
 import { IBlogPost } from './blogpost';
 import { environment } from '../../environments/environment';
 
@@ -25,16 +24,9 @@ export class BlogService {
       }
   }
 
-  getIndex(): Observable<IBlogIndex[]> {
+  getIndex(): Observable<IBlogPost[]> {
     return this._http.get(this._blogIndexUrl)
-      .map((response: Response) => <IBlogIndex[]>response.json())
-      //.do(data => console.log('All: ' + JSON.stringify(data)))
-      .catch(this.handleError);
-  }
-
-  getPost(postId: number): Observable<IBlogPost> {
-    return this._http.get(`${this._blogPostUrl}${postId}.json`)
-      .map((response: Response) => <IBlogPost>response.json())
+      .map((response: Response) => <IBlogPost[]>response.json())
       //.do(data => console.log('All: ' + JSON.stringify(data)))
       .catch(this.handleError);
   }

@@ -1,8 +1,8 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { BlogService } from './blog.service';
-import { IBlogIndex } from './blogindex';
 import { IBlogPost } from './blogpost';
 
 @Component({
@@ -13,37 +13,46 @@ import { IBlogPost } from './blogpost';
   ]
 
 })
-export class BlogIndexComponent implements OnInit, OnDestroy {
+export class BlogIndexComponent {
 
-  @Input() activePost: IBlogPost;
-  index: IBlogIndex[];
+  @Input() index: IBlogPost[];
 
+  selectedPost : IBlogPost;
   firstPost: number;
 
   errorMessage: string;
-  private sub: Subscription;
+  //private sub: Subscription;
 
-  constructor(private _service: BlogService) {
-
+  constructor(
+    private _route: ActivatedRoute,
+    private _router: Router)
+  {
   }
 
-  ngOnInit() {
-    this.sub = this._service.getIndex()
-      .subscribe(
-      index => {
-        this.index = index.sort((a, b) => { return b.page - a.page; });
-        this.firstPost = this.index[0].page;
-      },
-      error => this.errorMessage = <any>error
-      );
+  // ngOnInit() {
+  //   this.sub = this._service.getIndex()
+  //     .subscribe(
+  //     index => {
+  //       this.index = index.sort((a, b) => { return b.post - a.post; });
+  //       this.firstPost = this.index[0].post;
+  //     },
+  //     error => this.errorMessage = <any>error
+  //     );
+  // }
 
+  // ngOnDestroy() {
+  //   this.sub.unsubscribe();
+  // }
+
+  isActive(item : IBlogPost) : boolean {
+    if(this.selectedPost) {
+      return item.post == this.selectedPost.post;
+    }
+    return false;
   }
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
-
-  getActiveClass(item: IBlogIndex): string {
-    return (item.page == this.activePost.post) ? 'active' : '';
+  onSelect(item : IBlogPost) : void {
+    this.selectedPost = item;
+    this._router.navigate([item.post], { relativeTo: this._route });
   }
 }

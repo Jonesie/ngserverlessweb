@@ -1,4 +1,4 @@
   <ul class="nav" *ngIf='index && index.length'>
     <li class="nav-header">Posts</li>
-    <li *ngFor='let item of index' [class]="getActiveClass(item)"><a [routerLink]="['/blog', item.page]">{{item.title}}</a></li>
+    <li *ngFor='let item of index' [class.active]="isActive(item)"><a [routerLink]="['/blog', item.post]">{{item.title}}</a></li>
   </ul>

@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from '../shared/shared.module';
 
-import { BlogMainComponent } from './blogmain.component';
 import { BlogComponent } from './blog.component';
+import { BlogPostComponent } from './blogpost.component';
 import { BlogIndexComponent } from './blogindex.component';
 
 import { BlogService } from './blog.service';
@@ -13,16 +13,16 @@ import { BlogPostGaurdService } from './blog.routegaurd.service';
 
 @NgModule({
   declarations: [
-    BlogMainComponent,
     BlogComponent,
+    BlogPostComponent,
     BlogIndexComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forChild([
-      { path: 'blog/:id', component: BlogMainComponent }, //, canActivate: [BlogPostGaurdService]
-      { path: 'blog', component: BlogMainComponent }
+      { path: 'blog/:id', component: BlogComponent, canActivate: [BlogPostGaurdService]},
+      { path: 'blog', component: BlogComponent }
     ]),
     SharedModule
   ],

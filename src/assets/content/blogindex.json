@@ -1,15 +1,33 @@
 [{
-    "page": 0,
+    "post": 0,
     "title": "Linux & AWS Explorations",
     "abstract": "How and why I created this site.",
     "author":"Peter G Jones",
-    "created":"24 April 2017"
+    "created":"24 April 2017",
+    "body":"0.html"
   },
   {
-    "page": 1,
-    "title": "Angular2 Startup",
-    "abstract": "Updating this site to a decent front end experience using Angular2.",
+    "post": 1,
+    "title": "Angular Startup",
+    "abstract": "Updating this site to a decent front end experience using Angular 4.",
     "author":"Peter G Jones",
-    "created":"May 2017"
+    "created":"May 2017",
+    "body":"1.html"
+  },
+  {
+    "post": 2,
+    "title": "Angular Updates",
+    "abstract": "More Angular Discoveries and Updates.",
+    "author":"Peter G Jones",
+    "created":"21 May 2017",
+    "body":"2.html"
+  },
+  {
+    "post": 3,
+    "title": "FileVersion with .Net Core",
+    "abstract": "How to get the FileVersion in .Net Core application.",
+    "author":"Peter G Jones",
+    "created":"29 May 2017",
+    "body":"3.html"
   }
 ]

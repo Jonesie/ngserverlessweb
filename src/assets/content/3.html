@@ -1,0 +1,47 @@
+<p>
+  Nearly every application I write requires me to embed and expose a version number. This helps a lot when you are releasing
+  many times, especially if the version number is used across your defect tracking and source control systems.
+</p>
+<p>
+  Becuase I only do this once per application, every few months, I always forget exactly how to do this. Also, thje process
+  and code is a little different for .Net Core applications. So, hence this document.
+</p>
+<p>
+  In .Net FX applications it was easy to specify the FileVersion or ProuctVersion attributes in an AssemblyInfo.cs file.
+  Using Visual Studio 2017 you dont get these files any more - at least not by default, I'm not sure if there is a way to
+  get them back - so here is what I do.
+</p>
+<ol>
+  <li>Create an XML file in you solution root. Call it SharedProps.props.</li>
+  <li>Add the following to the file:
+    <pre>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;Project&gt;
+  &lt;PropertyGroup&gt;
+    &lt;Company&gt;Acme Inc&lt;/Company&gt;
+    &lt;Copyright&gt;Acme Inc ©&lt;/Copyright&gt;
+    &lt;FileVersion&gt;0.0.0.0&lt;/FileVersion&gt;
+  &lt;/PropertyGroup&gt;
+&lt;/Project&gt;
+</pre>
+  </li>
+  <li>
+    In the projects you want to expose a version number,edit the csproj file. Add the following to the top, just after the root
+    &lt;Project&gt; tag:
+    <pre>
+&lt;Import Project="..\SharedProps.props" /&gt;
+</pre> Thats assuming the projects are in subdirectories of the solution root.
+  </li>
+</ol>
+<p>
+  Now you just need to update the file version in this file before building the solution. If your using git then the excellent
+  <a href="https://github.com/GitTools/GitVersion">GitVersion</a> tool will do this for you. There are a mirad of oher solutions to do this and it really depends on your build
+  server and what you use to build your application with.
+</p>
+<p>
+To read the FileVersion at runtime you just need the following code:
+<pre>
+var asm = Assembly.GetEntryAssembly();
+var version = asm.GetCustomAttribute&lt;AssemblyFileVersionAttribute&gt;().Version;
+</pre>
+</p>

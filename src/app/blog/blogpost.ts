@@ -5,4 +5,5 @@ export interface IBlogPost {
   author: string;
   created: Date;
   body: string;
+  isActive: boolean;
 }

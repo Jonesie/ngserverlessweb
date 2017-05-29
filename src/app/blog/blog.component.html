@@ -1,8 +1,8 @@
-<div class="row" *ngIf="currentPost">
+<div class="row" *ngIf="index">
   <div class="col-sm-4 col-md-4">
     <div class="sidebar-nav-fixed affix" style="margin-top:30px">
       <div class="well">
-        <comp-index [activePost]="currentPost" ></comp-index>
+        <comp-index [index]="index"></comp-index>
       </div>
       <div class="well text-center">
         <comp-kiwiana></comp-kiwiana>
@@ -11,10 +11,7 @@
   </div>
   <div class="col-sm-8 col-sm-offset-3 col-md-8 col-md-offset-2 main">
     <div class='container'>
-      <h1>{{currentPost.title}}</h1>
-      <h4>by {{currentPost.author}} - {{currentPost.created}}</h4>
-      <br/>
-      <div [innerHtml]='currentPost.body'></div>
+      <comp-post [currentPost]="currentPost"></comp-post>
     </div>
   </div>
 </div>
