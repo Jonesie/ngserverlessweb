@@ -30,11 +30,9 @@ export class BlogComponent {
     this.indexSub = this._blogService.getIndex()
       .subscribe(
       index => {
-        console.log('got index');
         this.index = index.sort((a, b) => { return b.post - a.post; });
         this.firstPost = this.index[0];
         this.selectPost(this.firstPost);
-        console.log("first = " + this.firstPost.post);
       },
       error => this.errorMessage = <any>error
       );
@@ -44,10 +42,8 @@ export class BlogComponent {
         if (this.index) {
           if (params['id']) {
             let id = +params['id'];
-            console.log('route = ' + id);
             this.selectPost(this.index.find(i => i.post == id));
           } else {
-            console.log('route = ' + this.firstPost.post);
             this.selectPost(this.firstPost);
           }
         }
@@ -61,7 +57,6 @@ export class BlogComponent {
 
   selectPost(post: IBlogPost): void {
     this.currentPost = post;
-console.log("getting body " + post.post);
     this._blogService.getPostBody(post.post).subscribe(
       body => this.currentPost.body = body,
       error => this.errorMessage = <any>error);

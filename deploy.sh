@@ -34,7 +34,7 @@ fi
 # copy the content to the bucket
 if [ $? -eq 0 ]
 then
-    ng build --prod --aot
+    ng build --aot --prod --env=git
 
     aws s3 cp \
         dist s3://$site_bucket_name/ \

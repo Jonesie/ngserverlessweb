@@ -24,7 +24,6 @@ export class ImageGalleryComponent implements OnInit {
     this.sub = this.http.get(this.imageIndexUrl)
       .map((response: Response) => <any[]>response.json())
       .subscribe(val => {
-        console.log(val);
         this.images = val;
         this.gallery.load(this.images);
       });

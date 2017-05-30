@@ -15,12 +15,14 @@ export class BlogService {
   private _blogPostUrl: string;
 
   constructor(private _http: Http) {
-      if(environment.production) {
+      if(!environment.localassets) {
         this._blogIndexUrl = 'https://s3-us-west-2.amazonaws.com/jonesie.kiwi/assets/content/blogindex.json';
         this._blogPostUrl = 'https://s3-us-west-2.amazonaws.com/jonesie.kiwi/assets/content/';
+        console.log("Using S3 Assets");
       } else {
         this._blogIndexUrl = '/assets/content/blogindex.json';
         this._blogPostUrl = '/assets/content/';
+        console.log("Using Local Assets");
       }
   }
 
